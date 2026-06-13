@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const PHONE_NUMBER = "(208) 555-0199";
-const PHONE_HREF = "tel:+12085550199";
+import { SITE } from "@/lib/site";
 
 export function Navbar() {
   return (
@@ -25,12 +23,12 @@ export function Navbar() {
 
         {/* CALL NOW — right */}
         <a
-          href={PHONE_HREF}
+          href={SITE.phoneHref}
           className="inline-flex items-center gap-2 rounded-sm bg-brand px-5 py-3 font-heading text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#c44d12] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
         >
           <span aria-hidden="true">📞</span>
           <span>
-            Call Now<span className="hidden md:inline">: {PHONE_NUMBER}</span>
+            Call Now<span className="hidden md:inline">: {SITE.phoneDisplay}</span>
           </span>
         </a>
       </nav>
