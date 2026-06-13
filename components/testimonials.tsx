@@ -58,18 +58,24 @@ const cardVariants = {
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="bg-charcoal-dark py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="testimonials"
+      className="relative overflow-hidden bg-gradient-to-b from-charcoal to-charcoal-dark py-28 sm:py-36"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05] mix-blend-overlay"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-heading text-sm uppercase tracking-[0.3em] text-brand">
-            Reviews
-          </p>
-          <h2 className="mt-3 text-4xl text-white sm:text-5xl">
+          <p className="eyebrow">Reviews</p>
+          <h2 className="mt-4 text-5xl text-white sm:text-6xl">
             What Our Customers Say
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-20 grid gap-8 md:grid-cols-3">
           {REVIEWS.map((review, i) => (
             <motion.figure
               key={review.name}
@@ -78,13 +84,20 @@ export function Testimonials() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
-              className="flex flex-col rounded-lg border border-white/10 bg-charcoal/60 p-8"
+              className="relative flex flex-col overflow-hidden rounded-xl border border-white/10 border-l-4 border-l-brand bg-gradient-to-b from-charcoal/80 to-ink/60 p-8 shadow-xl shadow-black/30"
             >
+              {/* Decorative oversized quote mark */}
+              <span
+                className="pointer-events-none absolute -right-2 top-0 select-none font-heading text-[8rem] leading-none text-brand/10"
+                aria-hidden="true"
+              >
+                &rdquo;
+              </span>
               <Stars />
-              <blockquote className="mt-5 flex-1 leading-relaxed text-white/80">
+              <blockquote className="relative mt-5 flex-1 leading-relaxed text-white/80">
                 &ldquo;{review.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-6 border-t border-white/10 pt-4">
+              <figcaption className="relative mt-6 border-t border-white/10 pt-4">
                 <span className="font-heading text-lg uppercase tracking-wide text-white">
                   {review.name}
                 </span>

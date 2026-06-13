@@ -3,8 +3,12 @@ import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#1f1f1f] py-16">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="relative overflow-hidden border-t-2 border-brand/80 bg-ink py-16">
+      <div
+        className="pointer-events-none absolute inset-0 bg-grain opacity-[0.04] mix-blend-overlay"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-6 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
           <div className="flex items-center gap-3">
@@ -31,7 +35,10 @@ export function Footer() {
           </h3>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             <li>
-              <a href={SITE.phoneHref} className="hover:text-brand">
+              <a
+                href={SITE.phoneHref}
+                className="tabular-nums transition-colors hover:text-brand"
+              >
                 {SITE.phoneDisplay}
               </a>
             </li>
@@ -67,7 +74,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl border-t border-white/10 px-6 pt-8">
+      <div className="relative mx-auto mt-12 max-w-7xl border-t border-white/10 px-6 pt-8">
         <p className="text-center text-xs text-white/40">
           &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
         </p>

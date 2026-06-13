@@ -56,16 +56,27 @@ const cardVariants = {
 
 export function Services() {
   return (
-    <section id="services" className="bg-charcoal-dark py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="services"
+      className="relative overflow-hidden bg-gradient-to-b from-ink via-charcoal-dark to-ink py-28 sm:py-36"
+    >
+      {/* Blueprint grid + grain for depth */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-grain opacity-[0.05] mix-blend-overlay"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-heading text-sm uppercase tracking-[0.3em] text-brand">
-            What We Do
-          </p>
-          <h2 className="mt-3 text-4xl text-white sm:text-5xl">Our Services</h2>
+          <p className="eyebrow">What We Do</p>
+          <h2 className="mt-4 text-5xl text-white sm:text-6xl">Our Services</h2>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-20 grid gap-8 md:grid-cols-3">
           {SERVICES.map((service, i) => (
             <motion.div
               key={service.title}
@@ -74,13 +85,20 @@ export function Services() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
-              className="group rounded-lg border border-white/10 bg-charcoal/60 p-8 transition-colors hover:border-brand/60"
+              className="group relative overflow-hidden rounded-xl border border-white/10 border-t-4 border-t-brand bg-gradient-to-b from-charcoal/80 to-charcoal-dark/80 p-8 shadow-xl shadow-black/30 transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-2 hover:border-white/20 hover:shadow-2xl hover:shadow-brand/15"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-md bg-brand/10 ring-1 ring-brand/30">
+              {/* Orange glow that blooms on hover */}
+              <div
+                className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand/0 blur-2xl transition-colors duration-300 group-hover:bg-brand/20"
+                aria-hidden="true"
+              />
+              <div className="relative flex h-16 w-16 items-center justify-center rounded-lg bg-brand/10 ring-1 ring-brand/30 transition-colors duration-300 group-hover:bg-brand/20">
                 {service.icon}
               </div>
-              <h3 className="mt-6 text-2xl text-white">{service.title}</h3>
-              <p className="mt-3 leading-relaxed text-white/70">
+              <h3 className="relative mt-6 text-2xl text-white">
+                {service.title}
+              </h3>
+              <p className="relative mt-3 leading-relaxed text-white/70">
                 {service.description}
               </p>
             </motion.div>
